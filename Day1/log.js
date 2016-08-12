@@ -7,14 +7,7 @@ for (var i = 0; i < data.length; i++)
     }
     else 
     {
-        if (data[i] == undefined)
-        {
-            result += "не определено";
-        }
-        else
-        {
-            result += data[i];
-        }
+        result += (data[i] == undefined) ? "не определено" : data[i];
     }
     console.log(result);
 }
