@@ -1,4 +1,5 @@
-for(var i = 0; i < 3; i++){
+for(var i = 0; i < 3; i++)
+{
     var sum = 0;
     var temp = "getCount" + (i + 1);
     for(var j = 0; j < 5; j++)

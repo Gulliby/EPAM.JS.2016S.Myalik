@@ -18,14 +18,6 @@
     margin-left:4%; 
 }
 
-.buttons-container button{
-    margin-bottom: 10px;
-    width: 100px;
-    background-color: white;
-    border: 1px solid gray;
-
-}
-
 .block {
     width: 50px;
     border: 1px solid gray;
@@ -35,6 +27,29 @@
     float: left;
 }
 
-.buttons-container button:hover {
+.buttons-container div:hover {
     cursor: pointer;
+}
+
+.buttons-container div{
+    margin-bottom: 10px;
+    width: 100px;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.red{
+    background-color: #f75149;    
+}
+
+.orange{
+    background-color: #f7c049;
+}
+
+.yellow{
+    background-color: #369a82;
+}
+
+.white{
+    background-color: white;
 }
