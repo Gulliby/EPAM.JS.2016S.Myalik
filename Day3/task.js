@@ -21,9 +21,10 @@ function setColor()
 {
     var blocks = $(".field-container .block").each(function(i,elem) 
     {
-        var infoNumber = $(elem).find("p").text();
+        var currentElement = $(elem);
+        var infoNumber = currentElement.find("p").text();
         var color = infoNumber > 75 ? "red": (infoNumber > 50 ? "orange" : (infoNumber > 25 ? "yellow" : "white"));
-        $(elem).addClass(color);
+        currentElement.addClass(color);
     });
 }
 
