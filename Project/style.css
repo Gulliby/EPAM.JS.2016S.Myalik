@@ -1,0 +1,120 @@
+body
+{
+     font-family: 'Oswald', sans-serif;
+     background-color: aliceblue; 
+     margin: 0px;  
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    margin: 0px; 
+}
+
+.full-page-container
+{
+    min-height: calc(100vh - 60px);
+}
+
+.main-footer
+{
+    text-align: center;   
+    height:40px;
+    background-color: orangered;
+    color:white;
+}
+
+.main-footer p
+{
+    padding-top: 10px;
+    margin:0px;
+}
+
+.container
+{
+    min-width: 650px;
+    width: 50%;
+    margin: auto;
+    background-color: white;
+    margin-top: 20px;
+    overflow: hidden;
+    font-size: 12px;
+    box-shadow: 5px 5px 20px lightgray;
+    border-radius: 8px;
+}
+
+.block-container
+{
+    float:left;
+}
+
+.block-container h1
+{
+    font-size: 15px;
+}
+
+.game-container{
+    min-width: 300px;
+    border: 2px solid gray;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.cell
+{
+    float:left;
+    width: 33.3333%;
+    min-width: 100px;
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    box-sizing: border-box;
+}
+
+.game-container .cell:nth-child(3n+1)
+{
+    border-left:none;
+}
+.game-container .cell:nth-child(n+7)
+{
+    border-bottom:none;
+}
+
+.width70
+{
+    width: 70%;
+}
+
+.width25
+{
+    width: 25%;
+}
+
+.margin-left5
+{
+    margin-left: 5%;
+}
+
+.red
+{
+    color:red;
+}
+
+.blue{
+    color:blue;
+}
+
+.cross
+{
+    background: url(img/cross.png);
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.circle
+{
+    background: url(img/circle.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
