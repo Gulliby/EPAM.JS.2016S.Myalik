@@ -5,6 +5,13 @@ body
      margin: 0px;  
 }
 
+.button p
+{
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+}
+
 h1,h2,h3,h4,h5,h6
 {
     margin: 0px; 
@@ -99,7 +106,8 @@ h1,h2,h3,h4,h5,h6
     color:red;
 }
 
-.blue{
+.blue
+{
     color:blue;
 }
 
@@ -117,4 +125,25 @@ h1,h2,h3,h4,h5,h6
     background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.button
+{
+    margin-top:16px;
+    padding-top:3px;
+    padding: 6px;
+    border:1px solid gray;
+    width:80%;
+    min-width: 60px;
+    border-radius:4px;
+    text-align: center;
+    -webkit-user-select: none;
+}
+
+.button:hover
+{
+    color:white;
+    background-color: coral;
+    border:1px solid coral;
+    cursor: pointer;
 }

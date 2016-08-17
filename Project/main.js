@@ -3,13 +3,16 @@ var map = new Array(mapLength);
 var factor = Math.sqrt(mapLength);
 var types = ["cross","circle"];
 var currentTypeNumber = 0;
+var mode = 0;
 
 window.onload = function() 
 {
     setEqualHeight($(".game-container .cell"));
+    $("#mode").click(changeMode);
     for(var i = 1; i <= mapLength; i++)
     {
         $("#cell" + i).click( { id: i }, putEvent);
+        $("#start-button").click(reset);
     }
 }
 
@@ -42,10 +45,9 @@ function put(id)
     if(checkEnd())
     {
         alert("Конец Игры!");
-        reset();
         return true;
     }
-    if(type == "cross")
+    if((type == "cross") && (mode == 1))
     { 
         generateNumber();
     }
@@ -64,20 +66,15 @@ function checkEnd()
     {
         colFlag = colFlag || checkRegularity(i + 1,factor);
     }
-    var fullField = true;
-    for(var i = 1; i <= mapLength; i++)
-    {
-        fullField = fullField && map[i];
-    }
-    return checkRegularity(1, factor + 1) || checkRegularity(factor, factor - 1) || rowFlag || colFlag || fullField;
+    return checkRegularity(1, factor + 1) || checkRegularity(factor, factor - 1) || rowFlag || colFlag;
         
 }
 
 function checkRegularity(count, regularity)
 {
-    var element = map[count];
-    if(element == undefined)
+    if(map[count] == undefined)
         return false;
+    var element = map[count];  
     var i = count + regularity
     for(var j = 0; j < factor - 1 ; j++)
     {
@@ -101,6 +98,13 @@ function reset()
                 element.removeClass(types[i]);
         }
     });
+}
+
+function changeMode()
+{
+    var text = (mode == 0) ? "Игрок vs Игрок" : "Игрок vs ИИ"; 
+    $("#mode").text(text); 
+    mode = (mode + 1) % 2;
 }
 
 
