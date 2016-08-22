@@ -1,0 +1,15 @@
+body { font-family: Calibri; font-size: 15px; margin: 30px; }
+
+.content { position: relative; }
+.game-over { display: none; margin: 0 auto; width: 900px; text-align: center; color: #f44336; font-size: 21px; font-weight: bold; }
+
+#field { width: 900px; margin: 0 auto; }
+.field-line { height: 75px; background-color: #4caf50; position: relative; }
+
+.buttons { width: 900px; margin: 0 auto; margin-top: 5px; }
+.button { display: inline-block; border: 1px solid #eee; padding: 0px 10px; margin-bottom: 5px; cursor: pointer; text-align: center; }
+.button#btnGenerate { background-color: #ff9800; }
+
+.zombie { position: absolute; top: 0; right: 0; }
+.zombie.michael { width: 46px; height: 69px; background-image: url(img/michael.gif); background-size: cover; }
+.zombie.strong { width: 60px; height: 73px; background-image: url(img/strong.gif); background-size: cover; }
