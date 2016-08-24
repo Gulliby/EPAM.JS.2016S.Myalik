@@ -1,17 +1,22 @@
 window.onload = function() 
 {
     var mInterval = 100;
-    var fieldLines = null;
+    var fieldLines = $(".field-line").toArray();;
     var zombies = [];
     var start = setTimeout(moveZombies, mInterval);
-    var block_length = null;
+    var block_length = $("#field").width();
     var growId = null;
-    
-    $("#btnGenerate").bind("click", generateZombie);
+
+    $("#btnGenerate").bind("click", startGame);
     $("#btnSlow").bind("click", slowZombies);
     $("#btnGrow").bind("click", grow)
     $("#btnExplode").bind("click", explode)
-    init();
+
+    function startGame()
+    {
+        $(".game-over").css("display","none");
+        generateZombie();
+    }
 
     function moveZombies() 
     {
@@ -96,7 +101,6 @@ window.onload = function()
         }    
     }
 
-
     function setRegular()
     {
         for(var i = 0; i < zombies.length; i++)
@@ -113,8 +117,9 @@ window.onload = function()
         {
             zombies[i].die();
         }
+        
         zombies = [];
-        alert("Game Over!")
+        $(".game-over").css("display","block");
     }
 
     function generateZombie()
