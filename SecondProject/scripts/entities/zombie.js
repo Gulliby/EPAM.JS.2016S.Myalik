@@ -1,20 +1,11 @@
-function Zombie(position, speed) 
+function Zombie(position, speed, health) 
 {
-    this.picture = $("<div/>").addClass("zombie");
+    var baseSpeed = 2;
+    var baseHealth = 50; 
     this.position = position;
-    this.health = 0;
-    this.speed = 0;
-    
-
-    this.healthy = function()
-    {
-        this.health = 50;
-    }
-    
-    this.speedy = function()
-    {
-        this.speed = 2;
-    }
+    this.health = this.maxHealth = health != undefined ? health : baseHealth;
+    this.maxSpeed = this.speed = speed;
+    this.picture = createImage(this.maxHealth);
 
     this.move = function(time) 
     {
@@ -27,11 +18,53 @@ function Zombie(position, speed)
         this.picture.remove();
     }
 
-    this.create = function(line) 
+    this.slow = function()
     {
-        this.healthy();
-        this.speedy();
+        this.speed = baseSpeed;
+    }
+
+    this.regulare = function()
+    {
+        this.speed = this.maxSpeed;
+    }
+
+    this.damage = function(damage)
+    {
+        this.health = this.health - damage;
+
+        if (this.health <= 0)
+        {
+            return false;
+        }
+        else
+        {
+            var hpWidth = (this.health / this.maxHealth) * 100;
+            this.picture.find(".hp-line").css("width",hpWidth+"%");
+            this.picture.find("p").text(this.health);
+            return true;
+        }
+    }
+
+    this.create = function(line) 
+    {     
         this.picture.css("right", this.position);
         $(line).append(this.picture);
+    }
+
+    function createImage(maxHealth)
+    {
+        var image = $("<div/>").addClass("zombie-depot"); 
+        var healthBar = $("<div/>").addClass("hp-bar"); 
+        var healthline = $("<div/>").addClass("hp-line");
+        var zombie = $("<div/>").addClass("zombie");
+        var text = $("<p/>").text(maxHealth);
+
+        healthline.append(text);
+        healthBar.append(healthline);
+
+        image.append(healthBar);
+        image.append(zombie);
+        
+        return image;
     }
 }
